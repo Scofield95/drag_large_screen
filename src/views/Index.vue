@@ -6,9 +6,11 @@
     <aside class="u-widget-list">
       <BaseWidgetList />
     </aside>
-    <main class="u-edit-area">
-      <BaseEditarea />
-    </main>
+    <section class="u-edit-area">
+      <main  @drop="handleDrop" @dragover="handleDragOver">
+        <BaseEditarea/>
+      </main>
+    </section>
     <aside class="u-attribute-area">
       <BaseAttributeArea />
     </aside>
@@ -17,7 +19,19 @@
 
 <script>
 export default {
+  methods: {
+    handleDrop() {
+      console.log('放下')
+      // e.preventDefault()
+      // e.stopPropagation()
+    },
 
+    handleDragOver(e) {
+      console.log(e)
+      e.preventDefault()
+      // e.dataTransfer.dropEffect = 'copy'
+    },
+  },
 }
 </script>
 
@@ -35,21 +49,26 @@ export default {
   }
   .u-widget-list{
     position: absolute;
-    top: 70px;
+    top: 80px;
     left: 0;
     bottom: 0;
     width: 250px;
   }
   .u-edit-area{
     position: absolute;
-    top: 70px;
+    top: 80px;
     left: 250px;
     right: 250px;
     bottom: 0;
+    padding: 0 10px;
+    main{
+      width: 100%;
+      height: 100%;
+    }
   }
   .u-attribute-area{
     position: absolute;
-    top: 70px;
+    top: 80px;
     right: 0;
     bottom: 0;
     width: 250px;

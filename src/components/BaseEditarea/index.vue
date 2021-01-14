@@ -1,10 +1,15 @@
 <template>
-  <el-card class="u-wrap-widget"></el-card>
+  <el-card class="u-wrap-widget">
+    <div></div>
+  </el-card>
 </template>
 
 <script>
 export default {
   name: 'BaseEditList',
+
+  methods: {
+  },
 }
 </script>
 
